@@ -33,3 +33,13 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/quest', function () {
+        return Inertia::render('Search/SearchContainer');
+    })->name('quest');
+});
