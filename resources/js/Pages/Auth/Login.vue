@@ -33,9 +33,9 @@ const submit = () => {
     <Head title="Log in" />
 
     <JetAuthenticationCard>
-        <template #logo>
+        <!-- <template #logo>
             <JetAuthenticationCardLogo />
-        </template>
+        </template> -->
 
         <JetValidationErrors class="mb-4" />
 

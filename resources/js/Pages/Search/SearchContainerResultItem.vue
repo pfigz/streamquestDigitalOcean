@@ -1,25 +1,16 @@
 <template>
     <div
-        class="flex flex-col max-w-xs m-5 rounded-lg bg-white shadow-lg"
+        class="flex-col flex-1 max-w-xs m-2 rounded-lg bg-white shadow-lg"
     >
-        <a href="#" @click="selectTitle()">
+        <a href="#" class="object-fill" @click="selectTitle()">
             <img
-                class="object-fill w-full rounded-t-lg"
+                class="w-full rounded-lg"
                 :src="`${resultImage}`"
                 :alt="`${resultName}`"
             />
         </a>
-        <div class="container flex-col w-48">
-            <div class="h-fit truncate overflow-hidden">
-                <h5 class="text-gray-900 font-medium mb-2" >
-                    {{ resultName }}
-                </h5>
-            </div>
-            <p class="text-gray-700 text-base mb-4">
-                {{ resultYear }}
-            </p>
-        </div>
     </div>
+
 </template>
 
 <script>
@@ -39,3 +30,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.hide {
+    visibility: hidden;
+}
+</style>
