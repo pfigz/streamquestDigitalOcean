@@ -1,8 +1,8 @@
 <template>
     <AppLayout title="StreamQuest!">
         
-            <h1 class="flex justify-center font-semibold text-xl text-white bg-gray-800 leading-tight">
-                Welcome to Stream Quest!
+            <h1 class="flex justify-center mt-5 text-xl text-white bg-gray-800 leading-tight">
+                Begin your quest! Search for a title below.
             </h1>
           
             <search-container-input
@@ -63,3 +63,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+h1 {
+font-family: 'Press Start 2P', cursive;
+}
+</style>

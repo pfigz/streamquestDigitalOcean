@@ -3,3 +3,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+@font-face {
+    font-family: Press Start 2P, cursive;
+    src: url(/../fonts/PressStart2P/PressStart2P-Regular.ttf);
+}
