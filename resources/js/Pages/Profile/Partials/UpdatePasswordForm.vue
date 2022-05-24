@@ -40,11 +40,11 @@ const updatePassword = () => {
 <template>
     <JetFormSection @submitted="updatePassword">
         <template #title>
-            Update Password
+            <div class="text-gray-100">Update Password</div>
         </template>
 
         <template #description>
-            Ensure your account is using a long, random password to stay secure.
+            <div class="text-gray-400">Ensure your account is using a long, random password to stay secure.</div>
         </template>
 
         <template #form>

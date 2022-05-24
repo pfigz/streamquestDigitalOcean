@@ -74,11 +74,11 @@ const clearPhotoFileInput = () => {
 <template>
     <JetFormSection @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            <div class="text-gray-100">Profile Information</div>
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            <div class="text-gray-400">Update your account's profile information and email address.</div>
         </template>
 
         <template #form>
