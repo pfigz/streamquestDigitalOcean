@@ -1,7 +1,7 @@
 <template>
     <AppLayout title="StreamQuest!">
         
-            <h1 class="flex justify-center mt-5 text-xl text-white bg-gray-800 leading-tight">
+            <h1 class="flex justify-center text-center mt-5 text-xl text-white bg-gray-800 leading-tight">
                 Begin your quest! Search for a title below.
             </h1>
           
@@ -46,6 +46,7 @@ export default {
             .then((response) => {
                 if (response.status === 200) {
                     this.results = response.data;
+                    this.selection = {};
                 }
             })
             .catch((error) => {

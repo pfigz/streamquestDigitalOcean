@@ -13,7 +13,7 @@ defineProps({
     <Head title="StreamQuest" />
 
     <div class="relative flex items-top justify-center min-h-screen bg-gray-800 sm:items-center sm:pt-0">
-        <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+        <div v-if="canLogin" class="fixed top-0 right-0 px-6 py-4 sm:block">
             <Link v-if="$page.props.user" :href="route('quest')" class="text-sm text-white underline">
                 StreamQuest!
             </Link>
@@ -29,18 +29,20 @@ defineProps({
             </template>
         </div>
 
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-full mx-auto my-20 sm:px-6 lg:px-8">
             <div class="flex flex-col justify-center pt-8 sm:justify-start sm:pt-0">
                 <div class="flex mb-10 text-white">
                     <p>Welcome to...</p>
                 </div>
-                <a href="/quest">
-                    <h1 class="text-white text-7xl mb-10">
-                        StreamQuest!
-                    </h1>
-                </a>
+                <div class="flex justify-center max-w-full">
+                    <a href="/quest">
+                        <h1 class="text-white text-center lg:text-7xl md:text-5xl text-4xl mb-10">
+                            StreamQuest!
+                        </h1>
+                    </a>
+                </div>
                 <div class="flex justify-center">
-                    <p class="text-white text-3xl">
+                    <p class="text-white text-center lg:text-3xl md:text-2xl sm:text-xl">
                         Your journey to locate your favorite films and shows starts here.
                     </p>
                 </div>
