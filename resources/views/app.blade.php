@@ -20,11 +20,16 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
         @inertiaHead
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased flex flex-col min-h-screen bg-gray-800">
         @inertia
 
         @env ('local')
             <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
         @endenv
+        <footer class="flex justify-center align-baseline">
+            <p class="text-gray-500">
+                <a href="https://www.watchmode.com">Streaming data powered by Watchmode.com</a>
+            </p>
+        </footer>
     </body>
 </html>
