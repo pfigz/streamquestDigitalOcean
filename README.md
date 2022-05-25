@@ -1,6 +1,6 @@
 # StreamQuest!
 > An API powered search engine for movies and t.v. shows.
-> Check it out [_here_](https://mymarketplace-app.herokuapp.com/). 
+> Check it out [_here_](https://thestream.quest). 
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -23,6 +23,7 @@
 - Laravel 
 - Vue.js
 - Tailwind CSS 
+
 ## Features
 - Register a username
 - Search for movies or t.v. shows
@@ -30,11 +31,11 @@
 
 
 ## Setup
-This project requires composer to be installed on your machine. After cloning the repo, run `composter install` to install project dependencies. The config.php file is setup for a Heroku deployment. Set your Heroku Config Vars to match the config.php file and deploy. Otherwise, update the config.php file with your own database and S3 bucket variables as necessary. Check /includes/init.php line 9 to ensure the correct config.php filepath is being used for your config variables.  
+This project requires composer and npm to be installed on your machine. It also requires a MYSQL database. After cloning the repo, run `composter install` to install project dependencies. Then run `npm install` and `npm run dev`. Copy the .env.example file and rename .env. Update the database credentials to match your MYSQL instance. Run `php artisan migrate` to populate the database, and then `php artisan serve` to have a local instance running on your machine.   
 
 
 ## Usage
-After setup, you can serve the project locally or through your favorite deployment pipeline. The live version of this project is hosted via Heroku. Should you choose Heroku, you will need to use the ClearDB MYSQL addon or migrate your database to Postgres.  
+After setup, you can serve the project locally or through your favorite deployment pipeline. This project is currently running on a Digital Ocean droplet. Tips on how to setup a droplet for a Laravel deployment can be found in this Medium [_article_](https://blog.devgenius.io/quick-way-to-deploy-a-laravel-app-to-digitalocean-d212f088bcc5) by Dino Cajic.
 
 ## Project Status
 Project is: _in progress_
@@ -42,30 +43,25 @@ Project is: _in progress_
 
 ## Room for Improvement
 Room for improvement:
-- Add pagination to view products page and comments on product page 
-- Make short and long descriptions for products
-- Add icons (stars) for product rating within comment
-- Include product image in the product->update() function
-- Continue to separate logic from view files / general project organization improvements
-- Style/UI improvements, too many to list
+- Tighten up responsive styling
+- Add graphics and/or logos
+- Use a modal to display title selection
 
 To do:
-- Incorporate Stripe API as checkout option 
-- Add AWS S3 Bucket for product image uploads
-- Update database to include created_at date for product sorting
-- Update database to include created_at date for comment sorting
-- Build Dockerfile 
-- Build proper dev pipeline 
-- Create separate admin and customer panels 
+- Setup automatic guest login for friendlier UX 
+- Create favorites for registered users
+- Setup links to streaming services
+- Setup dashboard for registered users
+
 
 
 ## Acknowledgements
-- Much of the boilerplate for this project comes from: [this tutorial](https://www.udemy.com/course/php-for-beginners-/).
+- API provided by: [Watchmode API](https://api.watchmode.com/).
 
 
 
 ## Contact
-Created by [@fig_dev](https://www.figgy.monster/) pfigdev@gmail.com
+Created by [@fig_dev](https://figdev.xyz/) pfigdev@gmail.com
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
