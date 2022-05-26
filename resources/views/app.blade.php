@@ -28,7 +28,8 @@
         @endenv
         <footer class="flex justify-center align-baseline">
             <p class="text-gray-500">
-                <a href="https://www.watchmode.com">Streaming data powered by Watchmode.com</a>
+                Streaming data powered by 
+                <a href="https://www.watchmode.com">Watchmode.com</a>
             </p>
         </footer>
     </body>

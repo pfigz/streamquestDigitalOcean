@@ -12,41 +12,39 @@ defineProps({
 <template>
     <Head title="StreamQuest" />
 
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-800 sm:items-center sm:pt-0">
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-800 items-center sm:pt-0">
         <div v-if="canLogin" class="fixed top-0 right-0 px-6 py-4 sm:block">
             <Link v-if="$page.props.user" :href="route('quest')" class="text-sm text-white underline">
                 StreamQuest!
             </Link>
 
             <template v-else>
-                <Link :href="route('login')" class="text-lg dark:text-white underline">
+                <Link :href="route('login')" class="text-lg text-white underline">
                     Log in
                 </Link>
 
-                <Link v-if="canRegister" :href="route('register')" class="ml-4 text-lg dark:text-white underline">
+                <Link v-if="canRegister" :href="route('register')" class="ml-4 text-lg text-white underline">
                     Register
                 </Link>
             </template>
         </div>
 
-        <div class="max-w-full mx-auto my-20 sm:px-6 lg:px-8">
-            <div class="flex flex-col justify-center pt-8 sm:justify-start sm:pt-0">
-                <div class="flex mb-10 text-white">
+        <div class="max-w-full mx-auto my-20">
+            <div class="flex flex-col pt-8 sm:pt-0">
+                <div class="flex justify-center mb-10 text-white">
                     <p>Welcome to...</p>
                 </div>
                 <div class="flex justify-center max-w-full">
                     <a href="/quest">
-                        <h1 class="text-white text-center lg:text-7xl md:text-5xl text-4xl mb-10">
+                        <h1 class="text-white text-2xl md:text-5xl lg:text-7xl mb-10">
                             StreamQuest!
                         </h1>
                     </a>
                 </div>
-                <div class="flex justify-center">
-                    <p class="text-white text-center lg:text-3xl md:text-2xl sm:text-xl">
-                        Your journey to locate your favorite films and shows starts here.
-                    </p>
-                </div>
-            </div>   
+            </div>
+            <p class="text-white text-center text-xs md:text-xl lg:text-3xl">
+                Your journey to locate your favorite films and shows starts here.
+            </p>   
         </div>
     </div>
 </template>
