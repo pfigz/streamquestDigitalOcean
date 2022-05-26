@@ -37,7 +37,7 @@ export default {
             }
 
             this.$emit('submitQuery', this.query);
-            this.query = '';
+            
         }
     }
 }
