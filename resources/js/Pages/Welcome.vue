@@ -35,7 +35,7 @@ defineProps({
                     <p>Welcome to...</p>
                 </div>
                 <div class="flex justify-center max-w-full">
-                    <a href="/quest">
+                    <a href="/quest/guest">
                         <h1 class="text-white text-2xl md:text-5xl lg:text-7xl mb-10">
                             StreamQuest!
                         </h1>
