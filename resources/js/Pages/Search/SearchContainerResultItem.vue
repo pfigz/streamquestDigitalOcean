@@ -31,8 +31,3 @@ export default {
 };
 </script>
 
-<style scoped>
-.hide {
-    visibility: hidden;
-}
-</style>
