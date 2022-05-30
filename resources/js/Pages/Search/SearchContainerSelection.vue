@@ -24,6 +24,9 @@
                             </p>
                         </div>
                     </template>
+                    <div v-if="selection.sources == ''">
+                        <p class="text-white text-sm">This title is not streaming in your region</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,14 +39,5 @@ export default {
     props: {
         selection: Object,
     },
-    computed: {
-
-    }
-};
-</script>
-
-<style scoped>
-.hide {
-    visibility: collapse;
 }
-</style>
+</script>
