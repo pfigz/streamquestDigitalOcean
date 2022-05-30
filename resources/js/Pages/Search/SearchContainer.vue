@@ -2,22 +2,19 @@
     <AppLayout title="StreamQuest!">
         
             <h1 class="flex justify-center text-center mt-5 text-xl text-white bg-gray-800 leading-tight">
-                Begin your quest! Search for a title below.
+                Begin your quest! Search for a title, then make a selection.
             </h1>
-          
             <search-container-input
                 @submitQuery="submitQuery"
-                class="bg-gray-800"
             />
             <search-container-selection
-                :selection="selection"
-                class="bg-gray-800"
+                :selection="selection"      
             />
             <search-container-results
                 :results="results"
                 @selectTitle="viewTitle"
-                class="bg-gray-800"
-            /> 
+            />
+            
     </AppLayout>
 </template>
 <script>
