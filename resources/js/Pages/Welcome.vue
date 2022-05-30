@@ -44,7 +44,7 @@ defineProps({
             </div>
             <p class="text-white text-center text-xs md:text-xl lg:text-3xl">
                 Your journey to locate your favorite films and shows starts here.
-            </p>   
+            </p>  
         </div>
     </div>
 </template>
