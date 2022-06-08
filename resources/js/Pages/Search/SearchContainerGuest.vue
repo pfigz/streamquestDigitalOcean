@@ -1,4 +1,5 @@
 <template>
+    <p class="text-gray-400 text-sm text-center mt-3">Would you like to <a class="underline" :href="route('register')">Register</a> or <a class="underline" :href="route('login')">Login</a>?</p>
     <h1 class="flex justify-center text-center mt-5 text-xl text-white bg-gray-800 leading-tight">
         Begin your quest! Search for a title, then make a selection.
     </h1>

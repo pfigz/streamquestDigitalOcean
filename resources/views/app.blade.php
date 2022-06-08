@@ -29,7 +29,7 @@
         <footer class="flex justify-center align-baseline">
             <p class="text-gray-500">
                 Streaming data powered by 
-                <a href="https://www.watchmode.com">Watchmode.com</a>
+                <a href="https://www.watchmode.com" class="underline-offset-1">Watchmode.com</a>
             </p>
         </footer>
     </body>
