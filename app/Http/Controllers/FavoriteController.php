@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateFavoriteRequest;
 
 class FavoriteController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        return Favorite::orderBy('created_at', 'DESC')->get();
     }
 
     /**
@@ -34,9 +35,28 @@ class FavoriteController extends Controller
      * @param  \App\Http\Requests\StoreFavoriteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFavoriteRequest $request)
+    public function store(StoreFavoriteRequest $request, $id)
     {
-        //
+        // if (auth()->user()->id == $id) {
+            $newFavorite =  new Favorite;
+
+            $newFavorite->user_id = $id;
+
+            $newFavorite->fill($request->only(
+                [
+                    'user_id',
+                    'title', 
+                    'title_id', 
+                    'backdrop_url', 
+                    'plot_overview', 
+                    'sources',
+                ]
+            ));
+        
+            $newFavorite->save();
+
+            return $newFavorite;
+        // }
     }
 
     /**
@@ -45,9 +65,19 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show(Favorite $favorite)
+    public function show($id)
     {
-        //
+        
+        if (auth()->user()->id == $id) {
+            
+            $favorites = Favorite::where('user_id', '=', $id)->get();
+            return $favorites;
+        }
+        abort(403);
+
+        // $favorites = Favorite::where('user_id', '=', $id)->get();
+        //     return $favorites;
+        
     }
 
     /**
