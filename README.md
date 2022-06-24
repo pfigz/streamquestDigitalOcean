@@ -61,7 +61,7 @@ To do:
 
 
 ## Contact
-Created by [@fig_dev](https://figdev.xyz/) pfigdev@gmail.com
+Created by [@fig_dev](https://pfigdev.xyz/) pfigdev@gmail.com
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
