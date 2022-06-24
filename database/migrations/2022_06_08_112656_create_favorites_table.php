@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('favorites', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->string('title');
+            $table->integer('title_id');
+            $table->string('backdrop_url')->nullable();
+            $table->text('plot_overview')->nullable();
+            $table->json('sources')->nullable();
             $table->timestamps();
         });
     }
