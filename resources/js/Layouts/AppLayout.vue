@@ -48,11 +48,11 @@ const logout = () => {
                             </div> -->
 
                             <!-- Navigation Links -->
-                                <!-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                        Dashboard
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                    <JetNavLink :href="route('favorites')" :active="route().current('favorites')">
+                                        My Favorites
                                     </JetNavLink>
-                                </div> -->
+                                </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -139,11 +139,11 @@ const logout = () => {
 
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
-                    <!-- <div class="pt-2 pb-3 space-y-1">
-                        <JetResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                    <div class="pt-2 pb-3 space-y-1">
+                        <JetResponsiveNavLink :href="route('favorites')" :active="route().current('favorites')">
+                            Favorites
                         </JetResponsiveNavLink>
-                    </div> -->
+                    </div>
 
                     <!-- Responsive Settings Options -->
                     <div class="pt-4 pb-1 border-t border-gray-200">
