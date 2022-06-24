@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FavoriteController;
 use Inertia\Inertia;
 
 /*
@@ -24,15 +25,15 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified',
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return Inertia::render('Dashboard');
-//     })->name('dashboard');
-// });
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/favorites', function () {
+        return Inertia::render('FavoriteDashboard/FavoriteDashboard');
+    })->name('favorites');
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -47,3 +48,7 @@ Route::middleware([
 Route::get('/quest/guest', function () {
     return Inertia::render('Search/SearchContainerGuest');
 })->name('quest.guest');
+
+Route::prefix('/favorites')->group(function(){
+    Route::get('/{id}', [FavoriteController::class, 'show'])->middleware('auth');  
+});

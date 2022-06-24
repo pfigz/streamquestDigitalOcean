@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\SearchController;
 
 /*
@@ -25,3 +25,10 @@ Route::prefix('/quest')->group(function() {
     Route::get("/sources",[SearchController::class, 'sources'] );
     Route::get("/selection/{titleId}",[SearchController::class, 'selection'] );
 });
+
+Route::prefix('/favorites')->group(function(){
+    Route::post('/store/{id}', [FavoriteController::class, 'store']);
+});
+
+
+
