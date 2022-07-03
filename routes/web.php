@@ -45,10 +45,21 @@ Route::middleware([
     })->name('quest');
 });
 
-Route::get('/quest/guest', function () {
-    return Inertia::render('Search/SearchContainerGuest');
-})->name('quest.guest');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/favorites', function () {
+        return Inertia::render('FavoriteDashboard/FavoriteDashboard');
+    })->name('favorites');
+});
 
 Route::prefix('/favorites')->group(function(){
     Route::get('/{id}', [FavoriteController::class, 'show'])->middleware('auth');  
 });
+
+Route::get('/quest/guest', function () {
+    return Inertia::render('Search/SearchContainerGuest');
+})->name('quest.guest');
+
