@@ -51,13 +51,13 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/favorites', function () {
-        return Inertia::render('FavoriteDashboard/FavoriteDashboard');
+        return Inertia::render('Favorites/FavoriteDashboard');
     })->name('favorites');
 });
 
-Route::prefix('/favorites')->group(function(){
-    Route::get('/{id}', [FavoriteController::class, 'show'])->middleware('auth');  
-});
+// Route::prefix('/favorites')->group(function(){
+//     Route::get('/{id}', [FavoriteController::class, 'show'])->middleware('auth');  
+// });
 
 Route::get('/quest/guest', function () {
     return Inertia::render('Search/SearchContainerGuest');
