@@ -6,6 +6,7 @@ use App\Models\Favorite;
 use App\Http\Requests\StoreFavoriteRequest;
 use App\Http\Requests\UpdateFavoriteRequest;
 
+
 class FavoriteController extends Controller
 {
 
@@ -35,12 +36,11 @@ class FavoriteController extends Controller
      * @param  \App\Http\Requests\StoreFavoriteRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFavoriteRequest $request, $id)
+    public function store(StoreFavoriteRequest $request)
     {
-        // if (auth()->user()->id == $id) {
             $newFavorite =  new Favorite;
 
-            $newFavorite->user_id = $id;
+            $newFavorite->user_id = auth()->user()->id;
 
             $newFavorite->fill($request->only(
                 [
@@ -56,7 +56,6 @@ class FavoriteController extends Controller
             $newFavorite->save();
 
             return $newFavorite;
-        // }
     }
 
     /**
@@ -65,19 +64,9 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        
-        if (auth()->user()->id == $id) {
-            
-            $favorites = Favorite::where('user_id', '=', $id)->get();
-            return $favorites;
-        }
-        abort(403);
-
-        // $favorites = Favorite::where('user_id', '=', $id)->get();
-        //     return $favorites;
-        
+        return Favorite::whereBelongsTo(auth()->user())->get();
     }
 
     /**
