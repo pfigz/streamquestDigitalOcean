@@ -9,7 +9,9 @@
         <div class="py-12 bg-gray-800 ">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                    <Favorites />
+                    <favorites-container
+                       :favorites = 'favorites'
+                    />
                 </div>
             </div>
         </div>
@@ -18,42 +20,28 @@
 
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Favorites from './FavoritesContainer.vue';
+import FavoritesContainer from './FavoritesContainer.vue';
 
 export default {
     name: "Favorites Dashboard",
     components: {
         AppLayout,
-        Favorites,
+        FavoritesContainer,
     },
+    beforeCreate () {
+
+    },  
     data () {
         return {
-            userId : "",
             favorites: [],
         }
     },
-    async mounted() {
-        await this.getFavorites(this.userId);
-    },
     methods: {
-        getUserId() {
-            axios.get('api/user')
-            .then(response => {
-                if (response.status === 200) {
-                    this.userId = response.data.id;
-                    console.log(this.userId);
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-        },
-        getFavorites(userId) {
-            axios.get("/api/favorites/" + userId)
+        getFavorites() {
+            axios.get('favorites/list')
             .then((response) => {
                 if (response.status === 200) {
                     this.favorites = response.data;
-                    console.log(response.data);
                 }
             })
             .catch((error) => {
@@ -62,9 +50,8 @@ export default {
         },
     },
     created() {
-            this.getUserId();
-            this.getFavorites(this.userId);
-            }
+        this.getFavorites();
+    }
 };
 </script>
 
