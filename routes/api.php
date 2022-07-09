@@ -26,10 +26,9 @@ Route::prefix('/quest')->group(function() {
     Route::get("/selection/{titleId}",[SearchController::class, 'selection'] );
 });
 
-Route::prefix('/favorites')->group(function(){
-    Route::get('/{id}', [FavoriteController::class, 'show']);
-    Route::post('/store/{id}', [FavoriteController::class, 'store']);
-});
+// Route::get('/favorites/{id}', [FavoriteController::class, 'show']);
+// Route::post('/store/{id}', [FavoriteController::class, 'store']);
+
 
 
 

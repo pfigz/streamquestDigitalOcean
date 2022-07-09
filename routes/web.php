@@ -30,16 +30,6 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/favorites', function () {
-        return Inertia::render('FavoriteDashboard/FavoriteDashboard');
-    })->name('favorites');
-});
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
     Route::get('/quest', function () {
         return Inertia::render('Search/SearchContainer');
     })->name('quest');
@@ -55,9 +45,12 @@ Route::middleware([
     })->name('favorites');
 });
 
-// Route::prefix('/favorites')->group(function(){
-//     Route::get('/{id}', [FavoriteController::class, 'show'])->middleware('auth');  
-// });
+Route::middleware('auth:sanctum')->group(function(){
+    Route::prefix('/favorites')->group(function () {
+        Route::get('/list', [FavoriteController::class, 'show']);
+        Route::post('/store', [FavoriteController::class, 'show']);
+    });  
+});
 
 Route::get('/quest/guest', function () {
     return Inertia::render('Search/SearchContainerGuest');
