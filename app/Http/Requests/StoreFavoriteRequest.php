@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreFavoriteRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class StoreFavoriteRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title_id' => [Rule::unique('favorites')->where('user_id', auth()->id())],
         ];
     }
 }
