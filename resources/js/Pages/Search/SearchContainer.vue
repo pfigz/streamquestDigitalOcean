@@ -8,7 +8,9 @@
                 @submitQuery="submitQuery"
             />
             <search-container-selection
-                :selection="selection"      
+                :selection="selection"
+                @saveFavorite ="saveFavorite"
+                @deleteFavorite="deleteFavorite()"
             />
             <search-container-results
                 :results="results"
@@ -56,6 +58,39 @@ export default {
                 if (response.status === 200) {
                     this.selection = response.data;
                 }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        },
+        saveFavorite(favorite) {
+            console.log(favorite);
+            let sources = JSON.stringify(favorite.sources)
+            axios.post('favorites/save',  {
+                title: favorite.title,
+                title_id: favorite.id,
+                backdrop_url: favorite.backdrop,
+                plot_overview: favorite.plot_overview,
+                sources: sources,
+            })
+            .then(response => {
+                if (response.status === 201) {
+                    alert('Added to Favorites List');
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        },
+        deleteFavorite(id) {
+            axios.delete("/favorite/favorites/" + id)
+            .then((response) => {
+                if (response.status === 200) {
+                    alert('Removed from Favorites List');
+                }
+            })
+            .catch((error) => {
+                console.log(error);
             });
         },
     },
