@@ -34,13 +34,24 @@ defineProps({
                 <div class="flex justify-center mb-10 text-white">
                     <p>Welcome to...</p>
                 </div>
-                <div class="flex justify-center max-w-full">
+                
+                <template v-if="$page.props.user">
+                    <div  class="flex justify-center max-w-full">
+                        <a href="/quest">
+                            <h1 class="text-white text-2xl md:text-5xl lg:text-7xl mb-10">
+                                StreamQuest!
+                            </h1>
+                        </a>
+                    </div>
+                </template>
+                        
+                <template v-else>
                     <a href="/quest/guest">
                         <h1 class="text-white text-2xl md:text-5xl lg:text-7xl mb-10">
                             StreamQuest!
                         </h1>
                     </a>
-                </div>
+                </template> 
             </div>
             <p class="text-white text-center text-xs md:text-xl lg:text-3xl">
                 Your journey to locate your favorite films and shows starts here.
