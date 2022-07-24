@@ -49,6 +49,11 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                    <JetNavLink :href="route('quest')" :active="route().current('quest')">
+                                        Quest!
+                                    </JetNavLink>
+                                </div>
+                                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                     <JetNavLink :href="route('favorites')" :active="route().current('favorites')">
                                         My Favorites
                                     </JetNavLink>
