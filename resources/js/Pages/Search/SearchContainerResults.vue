@@ -12,8 +12,7 @@
                         @selectTitle="selectTitle(result.id)"
                     />
                 </div>
-            </template>
-            
+            </template>   
         </div>
         <div v-if="results.results == ''" class="flex justify-center">
             <p class="text-red-600 text-center text-xs md:text-base lg:text-lg">Your quest has failed. Please try again.</p>
