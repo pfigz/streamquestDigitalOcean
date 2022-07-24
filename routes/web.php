@@ -47,12 +47,14 @@ Route::middleware([
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::prefix('/favorites')->group(function () {
-        Route::get('/list', [FavoriteController::class, 'show']);
-        Route::post('/store', [FavoriteController::class, 'show']);
+        Route::get('/list', [FavoriteController::class, 'index']);
+        Route::get('/favorite/{id}', [FavoriteController::class, 'show']);
+        Route::post('/save', [FavoriteController::class, 'store'])->name('favorites.save');
+        Route::delete('/delete/{id}', [FavoriteController::class, 'destroy']);
     });  
 });
 
 Route::get('/quest/guest', function () {
-    return Inertia::render('Search/SearchContainerGuest');
+    return Inertia::render('GuestSearch/GuestSearchContainer');
 })->name('quest.guest');
 
