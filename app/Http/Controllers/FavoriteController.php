@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Favorite;
 use App\Http\Requests\StoreFavoriteRequest;
 use App\Http\Requests\UpdateFavoriteRequest;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
 class FavoriteController extends Controller
 {
@@ -17,7 +18,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        return Favorite::orderBy('created_at', 'DESC')->get();
+        return Favorite::whereBelongsTo(auth()->user())->get();
     }
 
     /**
@@ -38,24 +39,19 @@ class FavoriteController extends Controller
      */
     public function store(StoreFavoriteRequest $request)
     {
-            $newFavorite =  new Favorite;
+        $newFavorite =  new Favorite;
 
-            $newFavorite->user_id = auth()->user()->id;
+        $newFavorite->user_id = auth()->user()->id;
 
-            $newFavorite->fill($request->only(
-                [
-                    'user_id',
-                    'title', 
-                    'title_id', 
-                    'backdrop_url', 
-                    'plot_overview', 
-                    'sources',
-                ]
-            ));
-        
-            $newFavorite->save();
+        $newFavorite->title = $request->title;
+        $newFavorite->title_id = $request->title_id;
+        $newFavorite->backdrop_url = $request->backdrop_url;
+        $newFavorite->plot_overview = $request->plot_overview;
+        $newFavorite->sources = $request->sources;
+    
+        $newFavorite->save();
 
-            return $newFavorite;
+        return $newFavorite;   
     }
 
     /**
@@ -64,9 +60,10 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return Favorite::whereBelongsTo(auth()->user())->get();
+        return Favorite::whereBelongsTo(auth()->user())
+                        ->where('title_id', $id)->get();
     }
 
     /**
@@ -98,8 +95,15 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy($id)
     {
-        //
+        $favorite = Favorite::find($id);
+
+        if ($favorite) {
+            $favorite->delete();
+            return "Removed from favorites list";
+        }
+
+        return "Title not found.";
     }
 }
