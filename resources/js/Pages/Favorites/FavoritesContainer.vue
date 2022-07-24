@@ -1,6 +1,15 @@
 <template>
-  These are my favorites.
-  {{ favorites }}
+  <div class="text-gray-100">Favorite Container</div>
+    <div class="grid grid-cols-5 place-content-center">
+        <template v-for="favorite in favorites" :key="favorite">
+            <favorites-container-item
+                :favoriteTitle="favorite['title']"
+                :favoriteBackdrop="favorite['backdrop_url']"
+                :favoritePlot="favorite['plot_overview']"
+                :favoriteSources="favorite['sources']"
+            />
+        </template>
+    </div>
   <!-- <FavoritesContainerItem 
     :favorites = 'favorites'
   /> -->
@@ -12,31 +21,8 @@ export default {
     components: {
         FavoritesContainerItem,
     },
-    // data () {
-    //     return {
-    //         favorites: []
-    //     }
-    // },
     props: {
-        // user: Object,
         favorites: Object,
     },
-    methods: {
-        // getFavorites() {
-        //     axios.get('favorites/list')
-        //     .then((response) => {
-        //         if (response.status === 200) {
-        //             this.favorites = response.data;
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.log(error);
-        //     });
-        // },
-        
-    },
-    // mounted() {
-    //     this.getFavorites(this.user.id);
-    // }
 }
 </script>
